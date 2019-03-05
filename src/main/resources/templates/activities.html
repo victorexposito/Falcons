@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>activities</title>
+</head>
+<body>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Activity id</th>
+                    <th>Price</th>
+                    <th>Name</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="activity: ${activityList}">
+                <td th:text="${activity.activity_id}"></td>
+                <td th:text="${activity.price}"></td>
+                <td th:text="${activity.name}"></td>
+                <td th:text="${activity.duration}"></td>
+
+            </tr>
+
+            </tbody>
+        </table>
+        <a th:href="@{'/'}">
+            <button class="btn">Back</button>
+        </a>
+    </div>
+
+</body>
+</html>
