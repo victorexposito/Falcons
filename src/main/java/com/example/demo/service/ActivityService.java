@@ -1,13 +1,14 @@
 package com.example.demo.service;
 
 import com.example.demo.Model.Activity;
+import com.example.demo.repository.ActivityRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class activityService implements ServiceI<Activity> {
+public class ActivityService implements ServiceI<Activity> {
 
-
+    ActivityRepo AR = new ActivityRepo();
 
     @Override
     public Activity create(Activity activity) {
@@ -31,6 +32,7 @@ public class activityService implements ServiceI<Activity> {
 
     @Override
     public List<Activity> readAll() {
-        return null;
+        List<Activity> activities = AR.readAll();
+        return activities;
     }
 }
