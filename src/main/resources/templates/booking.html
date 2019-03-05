@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>booking</title>
+</head>
+<body>
+    <h1>Booking</h1>
+
+    <span th:each="activity : ${activity}">
+        <form method="post" action="/BookActivity">
+            <input type="hidden" name="activity_id" th:value="${activity.activity_id}">
+            <input type="text" name="price" th:value="${activity.price}">
+            <input type="text" name="name" th:value="${activity.name">
+            <input type="text" name="duration" th:value="${activity.duration}">
+        </form>
+    </span>
+</body>
+</html>
