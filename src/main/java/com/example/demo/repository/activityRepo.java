@@ -1,11 +1,19 @@
 package com.example.demo.repository;
 
 import com.example.demo.Model.Activity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public class activityRepo implements RepositoryI<Activity>{
+public class ActivityRepo implements RepositoryI<Activity>{
+
+    @Autowired
+    JdbcTemplate template;
+
     @Override
     public Activity create(Activity activity) {
         return null;
@@ -28,7 +36,11 @@ public class activityRepo implements RepositoryI<Activity>{
 
     @Override
     public List<Activity> readAll() {
-
-        return null;
+        String sql = "select * \n" +
+                "from activity\n" +
+                "order by name";
+        RowMapper<Activity> rowMapper = new BeanPropertyRowMapper<>(Activity.class);
+        List<Activity> activities = template.query(sql, rowMapper);
+        return activities;
     }
 }
