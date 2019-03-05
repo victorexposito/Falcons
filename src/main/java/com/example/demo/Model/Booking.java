@@ -13,19 +13,31 @@ public class Booking {
     private int booking_id;
     private int activity_id;
     private int instructor_id;
-    private DateTimeFormat start_date_time;
-    private DateTimeFormat end_date_time;
+    private int customer_id;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String start_date_time;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String end_date_time;
 
 
-    public Booking(int booking_id, int activity_id, int instructor_id, DateTimeFormat start_date_time, DateTimeFormat end_date_time) {
+    public Booking(int booking_id, int activity_id, int instructor_id, int customer_id, String start_date_time, String end_date_time) {
         this.booking_id = booking_id;
         this.activity_id = activity_id;
         this.instructor_id = instructor_id;
+        this.customer_id = customer_id;
         this.start_date_time = start_date_time;
         this.end_date_time = end_date_time;
     }
 
     public Booking() {
+    }
+
+    public int getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
     }
 
     public int getBooking_id() {
@@ -52,19 +64,19 @@ public class Booking {
         this.instructor_id = instructor_id;
     }
 
-    public DateTimeFormat getStart_date_time() {
+    public String getStart_date_time() {
         return start_date_time;
     }
 
-    public void setStart_date_time(DateTimeFormat start_date_time) {
+    public void setStart_date_time(String start_date_time) {
         this.start_date_time = start_date_time;
     }
 
-    public DateTimeFormat getEnd_date_time() {
+    public String getEnd_date_time() {
         return end_date_time;
     }
 
-    public void setEnd_date_time(DateTimeFormat end_date_time) {
+    public void setEnd_date_time(String end_date_time) {
         this.end_date_time = end_date_time;
     }
 }
