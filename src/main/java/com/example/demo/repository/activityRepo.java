@@ -36,9 +36,7 @@ public class ActivityRepo implements RepositoryI<Activity>{
 
     @Override
     public List<Activity> readAll() {
-        String sql = "select * \n" +
-                "from activity\n" +
-                "order by name";
+        String sql = "select * from activity";
         RowMapper<Activity> rowMapper = new BeanPropertyRowMapper<>(Activity.class);
         List<Activity> activities = template.query(sql, rowMapper);
         return activities;
