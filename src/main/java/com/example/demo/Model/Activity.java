@@ -1,9 +1,10 @@
-import java.persistence.Entity;
-import java.persistence.Id;
+package com.example.demo.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-public class Activites {
+public class Activity {
 
     @Id
     private int activity_id;
@@ -11,14 +12,14 @@ public class Activites {
     private String name;
     private int duration;
 
-    public Activites(int activity_id, int price, String name, int duration) {
+    public Activity(int activity_id, int price, String name, int duration) {
         this.activity_id = activity_id;
         this.price = price;
         this.name = name;
         this.duration = duration;
     }
 
-    public Activites() {
+    public Activity() {
     }
 
     public int getActivity_id() {
