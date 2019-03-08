@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.Model.Booking;
 import com.example.demo.repository.BookingRepo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BookingService implements ServiceI<Booking> {
 
     BookingRepo BR = new BookingRepo();
