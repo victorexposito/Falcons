@@ -8,12 +8,32 @@
     <h1>Booking</h1>
 
     <span th:each="activity : ${activity}">
-        <form method="post" action="/BookActivity">
+        <form method="post" action="/bookActivity">
             <input type="hidden" name="activity_id" th:value="${activity.activity_id}">
             <input type="text" name="price" th:value="${activity.price}">
-            <input type="text" name="name" th:value="${activity.name">
+            <input type="text" name="name" th:value="${activity.name}">
             <input type="text" name="duration" th:value="${activity.duration}">
+            <input type="submit" value="Choose activity">
         </form>
     </span>
+    <span th:each="booking : ${booking}">
+        <form method="post" action="/createBooking">
+            <input type="hidden" name="booking_id" th:value="${booking.booking_id}">
+            <label>Activity ID:</label>
+            <input type="text" name="activity_id" th:value="${booking.activity_id}">
+            <label>Instructor ID:</label>
+            <input type="text" name="instructor_id" th:value="${booking.instructor_id}">
+            <label>Customer ID:</label>
+            <input type="text" name="customer_id" th:value="${booking.customer_id}">
+            <label>Start time:</label>
+            <input type="text" name="start_date_time" placeholder="YYYY-MM-DD HH:MM:SS" th:value="${booking.start_date_time}">
+            <label>End time:</label>
+            <input type="text" name="end_date_time" placeholder="YYYY-MM-DD HH:MM:SS" th:value="${booking.end_date_time}">
+            <input type="submit" value="Book activity">
+        </form>
+    </span>
+    <a th:href="@{'/'}">
+        <button class="btn">Back</button>
+    </a>
 </body>
 </html>
