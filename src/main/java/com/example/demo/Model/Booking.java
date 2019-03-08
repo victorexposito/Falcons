@@ -19,7 +19,7 @@ public class Booking {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String end_date_time;
 
-
+    //Constructor for booking model
     public Booking(int booking_id, int activity_id, int instructor_id, int customer_id, String start_date_time, String end_date_time) {
         this.booking_id = booking_id;
         this.activity_id = activity_id;
