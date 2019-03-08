@@ -15,16 +15,16 @@ import java.util.List;
 public class BookingController {
 
     @Autowired
-    BookingService BS = new BookingService();
+    BookingService BS;
 
     @Autowired
-    ActivityService AS = new ActivityService();
+    ActivityService AS;
 
-    List<Activity> activities = AS.readAll();
+//    List<Activity> activities = AS.readAll();
 
     @GetMapping("/Booking")
     public String booking(Model model){
-    model.addAttribute("activity", activities);
+    //model.addAttribute("activity", activities);
     return "booking";
     }
 

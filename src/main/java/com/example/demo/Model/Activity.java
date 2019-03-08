@@ -8,11 +8,11 @@ public class Activity {
 
     @Id
     private int activity_id;
-    private int price;
+    private double price;
     private String name;
     private int duration;
 
-    public Activity(int activity_id, int price, String name, int duration) {
+    public Activity(int activity_id, double price, String name, int duration) {
         this.activity_id = activity_id;
         this.price = price;
         this.name = name;
@@ -30,11 +30,11 @@ public class Activity {
         this.activity_id = activity_id;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

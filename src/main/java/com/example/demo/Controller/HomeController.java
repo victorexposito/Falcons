@@ -14,37 +14,10 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @Autowired
-    ServiceI activityService;
-
-    @Autowired
-    BookingService BS = new BookingService();
-
-    @Autowired
-    ActivityService AS = new ActivityService();
-
-    List<Activity> activities = AS.readAll();
-
     @GetMapping("/")
-    public String home(Model model){
+    public String home(){
 
         return "index";
     }
-
-    @GetMapping("/activities")
-    public String showAllActivities(Model model){
-        List<Activity> activities= activityService.readAll();
-        model.addAttribute("activityList", activities);
-
-        return "activities";
-    }
-
-    @GetMapping("/Booking")
-    public String booking(Model model){
-        model.addAttribute("activity", activities);
-        return "booking";
-    }
-
-
 
 }
