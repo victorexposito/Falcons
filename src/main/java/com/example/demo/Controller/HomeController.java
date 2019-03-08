@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.*;
 import com.example.demo.service.ActivityService;
+import com.example.demo.service.BookingService;
 import com.example.demo.service.ServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,14 @@ public class HomeController {
     @Autowired
     ServiceI activityService;
 
+    @Autowired
+    BookingService BS = new BookingService();
+
+    @Autowired
+    ActivityService AS = new ActivityService();
+
+    List<Activity> activities = AS.readAll();
+
     @GetMapping("/")
     public String home(Model model){
 
@@ -29,6 +38,13 @@ public class HomeController {
 
         return "activities";
     }
+
+    @GetMapping("/Booking")
+    public String booking(Model model){
+        model.addAttribute("activity", activities);
+        return "booking";
+    }
+
 
 
 }
