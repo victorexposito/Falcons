@@ -40,6 +40,9 @@ public class ActivityRepo implements RepositoryI<Activity>{
         String sql = "select * from activity order by name";
         RowMapper<Activity> rowMapper = new BeanPropertyRowMapper<>(Activity.class);
         List<Activity> activities = template.query(sql, rowMapper);
+        for(Activity i: activities){
+            System.out.println(i.getName());
+        }
         return activities;
     }
 }

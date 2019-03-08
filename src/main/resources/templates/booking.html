@@ -7,7 +7,7 @@
 <body>
     <h1>Booking</h1>
 
-    <span th:each="activity : ${activities}">
+    <span th:each="activity : ${activity}">
         <form method="post" action="/BookActivity">
             <input type="hidden" name="activity_id" th:value="${activity.activity_id}">
             <input type="text" name="price" th:value="${activity.price}">
