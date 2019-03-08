@@ -15,6 +15,7 @@ public class BookingController {
 
     @Autowired
     BookingService BS = new BookingService();
+
     @Autowired
     ActivityService AS = new ActivityService();
 
