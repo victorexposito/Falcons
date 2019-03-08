@@ -34,6 +34,7 @@ public class ActivityRepo implements RepositoryI<Activity>{
         return null;
     }
 
+    //This method returns a list of all activitites
     @Override
     public List<Activity> readAll() {
         String sql = "select * \n" +
