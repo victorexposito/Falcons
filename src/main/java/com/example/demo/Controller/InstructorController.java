@@ -29,7 +29,8 @@ public class InstructorController {
 
     @PostMapping("/createInstructor")
     public String createInstructor(@ModelAttribute Instructor i, Model model){
-        instructor.add(IS.create(i));
+        IS.create(i);
+        instructor = IS.readAll();
         model.addAttribute("instructor", instructor);
         return "instructor";
     }
