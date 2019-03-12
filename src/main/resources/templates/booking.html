@@ -19,10 +19,8 @@
     <span th:each="booking : ${booking}">
         <form method="post" action="/createBooking">
             <input type="hidden" name="booking_id" th:value="${booking.booking_id}">
-            <label>Activity ID:</label>
-            <input type="text" name="activity_id" th:value="${booking.activity_id}">
-            <label>Instructor ID:</label>
-            <input type="text" name="instructor_id" th:value="${booking.instructor_id}">
+            <input type="hidden" name="activity_id" th:value="${booking.activity_id}">
+            <input type="hidden" name="instructor_id" th:value="${booking.instructor_id}">
             <label>Customer ID:</label>
             <input type="text" name="customer_id" th:value="${booking.customer_id}">
             <label>Start time:</label>
