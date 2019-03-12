@@ -22,8 +22,6 @@ public class InstructorRepo implements RepositoryI<Instructor> {
         String sql2 = "Select * from instructor where phone_number = ?";
         RowMapper<Instructor> rowMapper = new BeanPropertyRowMapper<>(Instructor.class);
         return template.queryForObject(sql2, rowMapper, instructor.getPhone_number());
-
-        return instructor;
     }
 
     @Override
