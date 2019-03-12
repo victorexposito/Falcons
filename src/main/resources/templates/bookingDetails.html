@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking details</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table style="width: 70%">
+
+            <thead>
+            <th style="width: 10%">Booking id</th>
+            <th style="width: 20%">Activity id</th>
+            <th style="width: 30%">Instructor id</th>
+            <th style="width: 10%">Customer id</th>
+            <th style="width: 10%">Start date time</th>
+            <th style="width: 10%">End date time</th>
+            </tr>
+
+            </thead>
+            <tbody>
+
+            <tr th:each="booking: ${booking}">
+               <td th:text="${booking.booking_id}"></td>
+                <td th:text="${booking.activity_id}"></td>
+                <td th:text="${booking.instructor_id}"></td>
+                <td th:text="${booking.customer_id}"></td>
+                <td th:text="${booking.start_date_time}"></td>
+                <td th:text="${booking.end_date_time}"></td>
+            </tr>
+
+            </tbody>
+
+        </table>
+        <a th:href="@{'/'}">
+            <button class="btn">Back</button>
+        </a>
+    </div>
+
+
+</body>
+</html>

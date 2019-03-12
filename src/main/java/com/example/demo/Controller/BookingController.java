@@ -23,6 +23,7 @@ public class BookingController {
     BookingService BS;
 
     List<Activity> activity = new ArrayList<>();
+    List<Booking> booking = new ArrayList<>();
 
 
     @GetMapping("/booking")
@@ -47,6 +48,13 @@ public class BookingController {
     BS.create(booking);
     return "index";
 
+    }
+
+    @GetMapping("/bookingDetails")
+    public String bookingDetails(Model model){
+        booking = BS.readAll();
+        model.addAttribute("booking", booking);
+        return "bookingDetails";
     }
 
 

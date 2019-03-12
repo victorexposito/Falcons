@@ -36,6 +36,6 @@ public class BookingService implements ServiceI<Booking> {
 
     @Override
     public List<Booking> readAll() {
-        return null;
+        return BR.readAll();
     }
 }
