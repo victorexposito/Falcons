@@ -2,13 +2,15 @@ package com.example.demo.service;
 
 import com.example.demo.Model.Activity;
 import com.example.demo.repository.ActivityRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class ActivityService implements ServiceI<Activity> {
 
-    ActivityRepo AR = new ActivityRepo();
+    @Autowired
+    ActivityRepo AR;
 
     @Override
     public Activity create(Activity activity) {
@@ -32,7 +34,7 @@ public class ActivityService implements ServiceI<Activity> {
 
     @Override
     public List<Activity> readAll() {
-        List<Activity> activities = AR.readAll();
-        return activities;
+        return AR.readAll();
+
     }
 }

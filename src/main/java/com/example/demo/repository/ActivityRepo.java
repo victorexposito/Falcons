@@ -34,11 +34,15 @@ public class ActivityRepo implements RepositoryI<Activity>{
         return null;
     }
 
+    //This method returns a list of all activitites
     @Override
     public List<Activity> readAll() {
-        String sql = "select * from activity";
+        String sql = "select * from activity order by name";
         RowMapper<Activity> rowMapper = new BeanPropertyRowMapper<>(Activity.class);
         List<Activity> activities = template.query(sql, rowMapper);
+        for(Activity i: activities){
+            System.out.println(i.getName());
+        }
         return activities;
     }
 }
