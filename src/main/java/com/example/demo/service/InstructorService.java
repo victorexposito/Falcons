@@ -1,34 +1,40 @@
 package com.example.demo.service;
 
+import com.example.demo.Model.Instructor;
+import com.example.demo.repository.InstructorRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class InstructorService implements ServiceI {
+public class InstructorService implements ServiceI<Instructor> {
+
+    @Autowired
+    InstructorRepo IR;
 
     @Override
-    public Object create(Object o) {
+    public Instructor create(Instructor instructor) {
+        return IR.create(instructor);
+    }
+
+    @Override
+    public Instructor read(Instructor instructor) {
         return null;
     }
 
     @Override
-    public Object read(Object o) {
+    public Instructor update(Instructor instructor) {
         return null;
     }
 
     @Override
-    public Object update(Object o) {
-        return null;
-    }
-
-    @Override
-    public Object delete(Object o) {
+    public Instructor delete(Instructor instructor) {
         return null;
     }
 
     @Override
     public List readAll() {
-        return null;
+        return IR.readAll();
     }
 }

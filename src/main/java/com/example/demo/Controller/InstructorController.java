@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,14 @@ public class InstructorController {
     public String addInstructor(Model model){
         instructor = IS.readAll();
         model.addAttribute("instructor", instructor);
-        return("instructor");
+        return "instructor";
     }
 
+    @PostMapping("/createInstructor")
+    public String createInstructor(@ModelAttribute Instructor i, Model model){
+        instructor.add(IS.create(i));
+        model.addAttribute("instructor", instructor);
+        return "instructor";
+    }
 
 }

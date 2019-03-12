@@ -19,6 +19,10 @@ public class InstructorRepo implements RepositoryI<Instructor> {
     public Instructor create(Instructor instructor) {
         String sql = "INSERT INTO instructor (instructor_id, first_name, last_name, phone_number) VALUES(?,?,?,?)";
         template.update(sql, instructor.getInstructor_id(), instructor.getFirst_name(), instructor.getLast_name(), instructor.getPhone_number());
+        String sql2 = "Select * from instructor where phone_number = ?";
+        RowMapper<Instructor> rowMapper = new BeanPropertyRowMapper<>(Instructor.class);
+        return template.queryForObject(sql2, rowMapper, instructor.getPhone_number());
+
         return instructor;
     }
 

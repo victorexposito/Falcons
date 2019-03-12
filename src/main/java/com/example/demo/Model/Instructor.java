@@ -1,8 +1,8 @@
 package com.example.demo.Model;
 
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Instructor {

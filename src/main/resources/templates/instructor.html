@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Intstuctor</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
+    <h1>Instructors</h1>
+<div class="container">
+    <table style="width: 70%">
+
+        <thead>
+        <th style="width: 10%">Instructor id</th>
+        <th style="width: 20%">First name</th>
+        <th style="width: 30%">Last name</th>
+        <th style="width: 10%">Phone number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="instructor: ${instructor}">
+            <td th:text="${instructor.instructor_id}"></td>
+            <td th:text="${instructor.first_name}"></td>
+            <td th:text="${instructor.last_name}"></td>
+            <td th:text="${instructor.phone_number}"></td>
+
+
+        </tr>
+
+        </tbody>
+    </table>
+    <form method="post" action="/createInstructor">
+        <input type="hidden" name="instructor_id" value="0">
+        <input type="text" name="first_name" placeholder="First name">
+        <input type="text" name="last_name" placeholder="Last name">
+        <input type="text" name="phone_number" placeholder="Phone number">
+        <input type="submit" value="Add instructor">
+    </form>
+    <a th:href="@{'/'}">
+        <button class="btn">Back</button>
+    </a>
+</div>
 
 
 </body>
