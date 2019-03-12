@@ -2,7 +2,9 @@ package com.example.demo.repository;
 
 import com.example.demo.Model.Booking;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,8 +36,15 @@ public class BookingRepo implements RepositoryI<Booking> {
         return null;
     }
 
+    //this method returns a list of all bookings
     @Override
     public List<Booking> readAll() {
-        return null;
+        String sql = "select * from booking order by booking_id";
+        RowMapper<Booking> rowMapper = new BeanPropertyRowMapper<>(Booking.class);
+        List<Booking> bookings = template.query(sql, rowMapper);
+        for(Booking i: bookings){
+            System.out.println(i.getBooking_id());
+        }
+        return bookings;
     }
 }
