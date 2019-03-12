@@ -37,7 +37,7 @@ public class InstructorRepo implements RepositoryI {
 
     @Override
     public List<Instructor> readAll() {
-        String sql = "select * from instructor order by name";
+        String sql = "select * from instructor order by last_name";
         RowMapper<Instructor> rowMapper = new BeanPropertyRowMapper<>(Instructor.class);
         List<Instructor> instructor = template.query(sql, rowMapper);
 
