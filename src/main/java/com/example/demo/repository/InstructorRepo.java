@@ -1,11 +1,19 @@
 package com.example.demo.repository;
 
+import com.example.demo.Model.Instructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public class InstructorRepo implements RepositoryI {
+
+    @Autowired
+    JdbcTemplate template;
 
     @Override
     public Object create(Object o) {
@@ -28,7 +36,11 @@ public class InstructorRepo implements RepositoryI {
     }
 
     @Override
-    public List readAll() {
-        return null;
+    public List<Instructor> readAll() {
+        String sql = "select * from instructor order by name";
+        RowMapper<Instructor> rowMapper = new BeanPropertyRowMapper<>(Instructor.class);
+        List<Instructor> instructor = template.query(sql, rowMapper);
+
+        return instructor;
     }
 }
