@@ -10,30 +10,33 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class InstructorRepo implements RepositoryI {
+public class InstructorRepo implements RepositoryI<Instructor> {
 
     @Autowired
     JdbcTemplate template;
 
     @Override
-    public Object create(Object o) {
+    public Instructor create(Instructor instructor) {
+        String sql = "INSERT INTO instructor (instructor_id, first_name, last_name, phone_number) VALUES(?,?,?,?)";
+        template.update(sql, instructor.getInstructor_id(), instructor.getFirst_name(), instructor.getLast_name(), instructor.getPhone_number());
+        return instructor;
+    }
+
+    @Override
+    public Instructor read(Instructor instructor) {
         return null;
     }
 
     @Override
-    public Object read(Object o) {
+    public Instructor update(Instructor instructor) {
         return null;
     }
 
     @Override
-    public Object update(Object o) {
+    public Instructor delete(Instructor instructor) {
         return null;
     }
 
-    @Override
-    public Object delete(Object o) {
-        return null;
-    }
 
     @Override
     public List<Instructor> readAll() {
