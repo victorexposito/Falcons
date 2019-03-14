@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Intstuctor</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         table, th, td{
             border: 1px solid black;
@@ -38,10 +39,10 @@
         <input type="text" name="first_name" placeholder="First name">
         <input type="text" name="last_name" placeholder="Last name">
         <input type="text" name="phone_number" placeholder="Phone number">
-        <input type="submit" value="Add instructor">
+        <input type="submit" value="Add instructor" class="btn btn-create">
     </form>
     <a th:href="@{'/'}">
-        <button class="btn">Back</button>
+        <button class="btn btn-ed">Back</button>
     </a>
 </div>
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>booking</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Booking</h1>
@@ -13,7 +14,7 @@
             <input type="text" name="price" th:value="${activity.price}">
             <input type="text" name="name" th:value="${activity.name}">
             <input type="text" name="duration" th:value="${activity.duration}">
-            <input type="submit" value="Choose activity">
+            <input type="submit" value="Choose activity" class="btn btn-create">
         </form>
     </span>
     <span th:each="booking : ${booking}">
@@ -27,11 +28,11 @@
             <input type="text" name="start_date_time" placeholder="YYYY-MM-DD HH:MM:SS" th:value="${booking.start_date_time}">
             <label>End time:</label>
             <input type="text" name="end_date_time" placeholder="YYYY-MM-DD HH:MM:SS" th:value="${booking.end_date_time}">
-            <input type="submit" value="Book activity">
+            <input type="submit" value="Book activity" class="btn btn-create">
         </form>
     </span>
     <a th:href="@{'/'}">
-        <button class="btn">Back</button>
+        <button class="btn btn-ed">Back</button>
     </a>
 </body>
 </html>
