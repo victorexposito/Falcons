@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,25 +20,31 @@ public class ActivityController {
     ActivityService AS;
     ActivityRepo AR;
 
-    List<Activity> activity =new ArrayList<>();
+    List<Activity> activity = new ArrayList<>();
 
     @GetMapping("/activities")
-       public String activities(Model model){
+    public String activities(Model model) {
         activity = AS.readAll();
-        model.addAttribute("activity" ,activity);
-        return "activities";
-    }
-
-
-    @GetMapping("/activities2")
-        public String activities2(@ModelAttribute Activity activityObject, Model model){
-        activity.clear();
-        activity.add(AS.read(activityObject));
         model.addAttribute("activity", activity);
         return "activities";
     }
 
 
+    @PostMapping("/activities2")
+    public String activities2(@ModelAttribute Activity activityObject, Model model) {
+        activity.clear();
+        try {
+            activity.add(AS.read(activityObject));
+            model.addAttribute("activity", activity);
+        } catch (Exception e) {
+            model.addAttribute("activity", activity);
+        }
+
+
+        return "activities";
+
+
+    }
 }
 
 
