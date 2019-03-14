@@ -19,7 +19,7 @@ public class ActivityService implements ServiceI<Activity> {
 
     @Override
     public Activity read(Activity activity) {
-        return null;
+        return AR.read(activity);
     }
 
     @Override

@@ -21,7 +21,10 @@ public class ActivityRepo implements RepositoryI<Activity>{
 
     @Override
     public Activity read(Activity activity) {
-        return null;
+        String sql = "SELECT * FROM activity WHERE name LIKE ? ";
+        RowMapper<Activity> rowMapper = new BeanPropertyRowMapper<>(Activity.class);
+        return template.queryForObject(sql, rowMapper, activity.getName());
+
     }
 
     @Override
