@@ -33,7 +33,10 @@ public class BookingRepo implements RepositoryI<Booking> {
 
     @Override
     public Booking delete(Booking booking) {
-        return null;
+        String sql ="DELETE FROM booking WHERE booking_id = ?";
+        template.update(sql, booking.getBooking_id());
+        System.out.println(booking.getBooking_id());
+        return booking;
     }
 
     //this method returns a list of all bookings

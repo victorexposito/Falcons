@@ -66,6 +66,8 @@
             <tbody>
 
 
+
+
             <tr th:each="booking: ${booking}">
                <td th:text="${booking.booking_id}"></td>
                 <td th:text="${booking.activity_id}"></td>
@@ -74,13 +76,17 @@
                 <td th:text="${booking.start_date_time}"></td>
                 <td th:text="${booking.end_date_time}"></td>
                 <td class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
+                    <button class="dropbtn">Select instructor</button>
                     <div class="dropdown-content">
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
                     </div>
+
                 </td>
+                <td><a th:href="${'/deleteBooking?id=' + booking.booking_id}">
+                    <button class="btn  btn-del">Cancel booking (to front page)</button>
+                </a></td>
             </tr>
 
             </tbody>
@@ -89,6 +95,7 @@
         <a th:href="@{'/'}">
             <button class="btn btn-ed">Back</button>
         </a>
+
     </div>
 
 
