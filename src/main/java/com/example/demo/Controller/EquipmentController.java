@@ -1,7 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.Equipment;
-import com.example.demo.repository.EquiptmentRepo;
+import com.example.demo.repository.EquipmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import java.util.List;
 public class EquipmentController {
 
     @Autowired
-    EquiptmentRepo ER;
+    EquipmentRepo ER;
 
     List<Equipment> equipment = new ArrayList<>();
 

@@ -1,18 +1,19 @@
-package com.example.demo.service;
+package com.example.demo.repository;
 
 import com.example.demo.Model.Equipment;
-import com.example.demo.repository.EquiptmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Service
-public class EquiptmentService implements ServiceI<Equipment> {
+@Repository
+public class EquipmentRepo implements RepositoryI<Equipment> {
 
     @Autowired
-    EquiptmentRepo ER = new EquiptmentRepo();
+    JdbcTemplate template;
 
     @Override
     public Equipment create(Equipment equiptment) {
@@ -36,6 +37,10 @@ public class EquiptmentService implements ServiceI<Equipment> {
 
     @Override
     public List<Equipment> readAll() {
-        return ER.readAll();
+        String sql = "select * from instructor order by last_name";
+        RowMapper<Equipment> rowMapper = new BeanPropertyRowMapper<>(Equipment.class);
+        List<Equipment> equipment = template.query(sql, rowMapper);
+
+        return equipment;
     }
 }
