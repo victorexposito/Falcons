@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipment</title>
+    <link rel="stylesheet" href="//style.css">
+</head>
+<body>
+
+<table id="myTable" style="width: 70%" >
+
+    <thead>
+    <th style="width: 10%">Equipment_id</th>
+    <th style="width: 20%">Name</th>
+    <th style="width: 30%">Quantity</th>
+    <th style="width: 10%">Comment</th>
+
+    </thead>
+    <tbody>
+    <tr th:each="equipment: ${equipment}">
+        <td th:text="${equipment.equipment_id}"></td>
+        <td th:text="${equipment.name}"></td>
+        <td th:text="${equipment.quantity}"></td>
+        <td th:text="${equipment.comment}"></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

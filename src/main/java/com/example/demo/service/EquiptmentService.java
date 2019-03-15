@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.Model.Equipment;
 import com.example.demo.repository.EquiptmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,33 +9,33 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EquiptmentService implements ServiceI<Equiptment> {
+public class EquiptmentService implements ServiceI<Equipment> {
 
     @Autowired
     EquiptmentRepo ER = new EquiptmentRepo();
 
     @Override
-    public Equiptment create(Equiptment equiptment) {
+    public Equipment create(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public Equiptment read(Equiptment equiptment) {
+    public Equipment read(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public Equiptment update(Equiptment equiptment) {
+    public Equipment update(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public Equiptment delete(Equiptment equiptment) {
+    public Equipment delete(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public List<Equiptment> readAll() {
-        return null;
+    public List<Equipment> readAll() {
+        return ER.readAll();
     }
 }
