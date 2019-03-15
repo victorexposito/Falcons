@@ -18,13 +18,13 @@
             <label>Search activity</label>
             <!--<input type="hidden" name = "activity_id">-->
             <!--<input type="hidden" name = "price">-->
-            <input type="text" name = "name">
+            <input type="text" name = "name" onkeyup="myFunction()" id="myInput">
             <!--<input type="hidden" name = "duration">-->
             <input type="submit" value="Search">
         </form>
         <a href="/activities"> <button>View all</button> </a>
 
-        <table style="width: 70%">
+        <table id="myTable" style="width: 70%" >
 
             <thead>
                     <th style="width: 10%">Activity id</th>
@@ -49,5 +49,27 @@
         </a>
     </div>
 
+<script>
+// filter table by activity name
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+</script>
 </body>
 </html>
