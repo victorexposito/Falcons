@@ -53,6 +53,7 @@ public class BookingController {
 
     @PostMapping("/createBooking")
     public String createBooking(@ModelAttribute Booking booking){
+        booking.setInstructor_id(0);
     BS.create(booking);
     return "index";
 

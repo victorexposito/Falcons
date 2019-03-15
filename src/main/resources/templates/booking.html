@@ -18,6 +18,7 @@
         </form>
     </span>
     <span th:each="booking : ${booking}">
+        <br>
         <form method="post" action="/createBooking">
             <input type="hidden" name="booking_id" th:value="${booking.booking_id}">
             <input type="hidden" name="activity_id" th:value="${booking.activity_id}">

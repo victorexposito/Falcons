@@ -5,8 +5,9 @@
     <title>allocateInstructor</title>
 </head>
 <body>
-
+<h1>Allocate instructor for booking</h1>
 <span th:each="instructor : ${instructor}">
+    <br>
         <form method="post" action="/chooseInstructorForBooking">
             <input type="text" name="instructor_id" th:value="${instructor.instructor_id}">
             <input type="text" name="first_name" th:value="${instructor.first_name}">
