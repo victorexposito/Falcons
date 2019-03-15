@@ -84,10 +84,6 @@ public class BookingController {
         return "bookingDetails";
     }
 
-    /*@GetMapping("/bookingDevalue = "id")
-    public String deleteBooking(Model model, @RequestParam(value ="id") int id){
-
-    }*/
 
     @GetMapping("/deleteBooking")
     public String deleteBooking(@RequestParam("id") Integer id, @ModelAttribute Booking bookingToDelete, Model model){
