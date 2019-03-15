@@ -7,13 +7,13 @@ import javax.persistence.Id;
 public class Equipment {
 
     @Id
-    private int equipmentId;
+    private int equipment_id;
     private String name;
     private int quantity;
     private String comment;
 
-    public Equipment(int equipmentId, String name, int quantity, String comment) {
-        this.equipmentId = equipmentId;
+    public Equipment(int equipment_id, String name, int quantity, String comment) {
+        this.equipment_id = equipment_id;
         this.name = name;
         this.quantity = quantity;
         this.comment = comment;
@@ -22,12 +22,12 @@ public class Equipment {
     public Equipment() {
     }
 
-    public int getEquipmentId() {
-        return equipmentId;
+    public int getEquipment_id() {
+        return equipment_id;
     }
 
-    public void setEquipmentId(int equipmentId) {
-        this.equipmentId = equipmentId;
+    public void setEquipment_id(int equipment_id) {
+        this.equipment_id = equipment_id;
     }
 
     public String getName() {
