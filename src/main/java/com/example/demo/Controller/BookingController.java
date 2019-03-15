@@ -2,8 +2,10 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.Activity;
 import com.example.demo.Model.Booking;
+import com.example.demo.Model.Instructor;
 import com.example.demo.service.ActivityService;
 import com.example.demo.service.BookingService;
+import com.example.demo.service.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +23,14 @@ public class BookingController {
     ActivityService AS;
     @Autowired
     BookingService BS;
+    @Autowired
+    InstructorService IS;
 
     List<Activity> activity = new ArrayList<>();
     List<Booking> booking = new ArrayList<>();
+    List<Instructor> instructor = new ArrayList<>();
+
+    Booking booked = new Booking();
 
 
     @GetMapping("/booking")
@@ -51,7 +58,25 @@ public class BookingController {
     }
 
     @GetMapping("/bookingDetails")
-    public String bookingDetails(Model model){
+    public String bookingDetails(Model model, Model model2){
+        booking = BS.readAll();
+        model.addAttribute("booking", booking);
+        return "bookingDetails";
+    }
+
+    @PostMapping("/allocateInstructor")
+    public String allocateInstructor(@ModelAttribute Booking bookingObject, Model model){
+        booked = bookingObject;
+        instructor = IS.readAll();
+        model.addAttribute("instructor", instructor);
+        return "allocateInstructor";
+
+    }
+
+    @PostMapping("/chooseInstructorForBooking")
+    public String chooseInstructorForBooking(@ModelAttribute Instructor instructorObject, Model model){
+        booked.setInstructor_id(instructorObject.getInstructor_id());
+        BS.update(booked);
         booking = BS.readAll();
         model.addAttribute("booking", booking);
         return "bookingDetails";

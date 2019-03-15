@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>allocateInstructor</title>
+</head>
+<body>
+
+<span th:each="instructor : ${instructor}">
+        <form method="post" action="/chooseInstructorForBooking">
+            <input type="text" name="instructor_id" th:value="${instructor.instructor_id}">
+            <input type="text" name="first_name" th:value="${instructor.first_name}">
+            <input type="text" name="last_name" th:value="${instructor.last_name}">
+            <input type="text" name="phone_number" th:value="${instructor.phone_number}">
+            <input type="submit" value="Choose instructor for booking" class="btn btn-create">
+        </form>
+    </span>
+
+</body>
+</html>

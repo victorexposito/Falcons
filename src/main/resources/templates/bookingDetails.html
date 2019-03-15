@@ -10,47 +10,12 @@
         }
 
 
-
-         .dropbtn {
-             background-color: #4CAF50;
-             color: white;
-             padding: 16px;
-             font-size: 16px;
-             border: none;
-         }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {background-color: #ddd;}
-
-        .dropdown:hover .dropdown-content {display: block;}
-
-        .dropdown:hover .dropbtn {background-color: #3e8e41;}
-
     </style>
 </head>
 <body>
     <div class="container">
-        <table style="width: 70%">
+        <h1>Booking details</h1>
+        <!--<table style="width: 70%">
 
             <thead>
             <th style="width: 10%">Booking id</th>
@@ -73,19 +38,35 @@
                 <td th:text="${booking.customer_id}"></td>
                 <td th:text="${booking.start_date_time}"></td>
                 <td th:text="${booking.end_date_time}"></td>
-                <td class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </td>
+                <td><a th:href="@{'/allocateBooking?booking=' + booking} " >
+                    <button class="btn btn-ed">Allocate Instructor</button>
+                </a></td>
             </tr>
 
             </tbody>
 
-        </table>
+        </table>-->
+
+        <span th:each="booking: ${booking}">
+            <br>
+            <form method="post" action="/allocateInstructor">
+                <label>Booking id:</label>
+                <input type="text" name="booking_id" th:value="${booking.booking_id}">
+                <label>Activity id:</label>
+                <input type="text" name="activity_id" th:value="${booking.activity_id}">
+                <label>instructor id:</label>
+                <input type="text" name="instructor_id" th:value="${booking.instructor_id}">
+                <label>Customer id:</label>
+                <input type="text" name="customer_id" th:value="${booking.customer_id}">
+                <label>Start tidspunkt</label>
+                <input type="text" name="start_date_time" th:value="${booking.start_date_time}">
+                <label>Slut tidspunkt</label>
+                <input type="text" name="end_date_time" th:value="${booking.end_date_time}">
+                <input type="submit" value="Allocate Instructor" class="btn-create">
+            </form>
+            <br>
+        </span>
+
         <a th:href="@{'/'}">
             <button class="btn btn-ed">Back</button>
         </a>

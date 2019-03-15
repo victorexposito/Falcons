@@ -26,7 +26,8 @@ public class BookingService implements ServiceI<Booking> {
 
     @Override
     public Booking update(Booking booking) {
-        return null;
+
+        return BR.update(booking);
     }
 
     @Override

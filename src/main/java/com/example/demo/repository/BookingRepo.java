@@ -28,7 +28,10 @@ public class BookingRepo implements RepositoryI<Booking> {
 
     @Override
     public Booking update(Booking booking) {
-        return null;
+
+        String sql = "UPDATE booking SET instructor_id=? WHERE booking_id=?";
+        template.update(sql, booking.getInstructor_id(), booking.getBooking_id());
+        return booking;
     }
 
     @Override
