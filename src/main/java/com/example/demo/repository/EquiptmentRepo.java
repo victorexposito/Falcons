@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import com.example.demo.Model.Equipment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -7,37 +8,33 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class EquiptmentRepo implements RepositoryI<Equpitment> {
+public class EquiptmentRepo implements RepositoryI<Equipment> {
 
     @Autowired
     JdbcTemplate template;
 
-    public EquiptmentRepo() {
-        super();
-    }
-
     @Override
-    public Equpitment create(Equpitment equpitment) {
+    public Equipment create(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public Equpitment read(Equpitment equpitment) {
+    public Equipment read(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public Equpitment update(Equpitment equpitment) {
+    public Equipment update(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public Equpitment delete(Equpitment equpitment) {
+    public Equipment delete(Equipment equiptment) {
         return null;
     }
 
     @Override
-    public List<Equpitment> readAll() {
+    public List<Equipment> readAll() {
         return null;
     }
 }
