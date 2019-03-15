@@ -25,7 +25,7 @@ public class InstructorService implements ServiceI<Instructor> {
 
     @Override
     public Instructor update(Instructor instructor) {
-        return null;
+        return IR.update(instructor);
     }
 
     @Override
