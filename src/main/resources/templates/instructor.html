@@ -28,8 +28,9 @@
             <td th:text="${instructor.first_name}"></td>
             <td th:text="${instructor.last_name}"></td>
             <td th:text="${instructor.phone_number}"></td>
-
-
+            <td>  <a th:href="${'/editInstructor?id=' + instructor.instructor_id}">
+                <button class="btn btn-ed">Update</button>
+            </a></td>
         </tr>
 
         </tbody>

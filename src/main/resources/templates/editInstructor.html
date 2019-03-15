@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Instructor</title>
+</head>
+<body>
+<h1>Edit an Instructor</h1>
+
+<form action="/editInstructorDo" method="post">
+<input type="hidden" th:value="${instructor.instructor_id}" name="instructor_id">
+<label>First Name</label>
+<input type="text" name ="first_name" th:value="${instructor.first_name}">
+<label>Last Name</label>
+<input type="text" name ="last_name" th:value="${instructor.last_name}">
+<label>Phone Number</label>
+<input type="text" name ="phone_number" th:value="${instructor.phone_number}">
+<input type="submit" value="Update Instructor" class="btn-ed">
+</form>
+
+</body>
+</html>

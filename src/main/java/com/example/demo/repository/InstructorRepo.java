@@ -31,7 +31,9 @@ public class InstructorRepo implements RepositoryI<Instructor> {
 
     @Override
     public Instructor update(Instructor instructor) {
-        return null;
+        String sql = "UPDATE instructor SET first_name = ?, last_name = ?, phone_number = ? WHERE instructor_id=?";
+        template.update(sql, instructor.getFirst_name(), instructor.getLast_name(), instructor.getPhone_number(), instructor.getInstructor_id());
+        return instructor;
     }
 
     @Override
