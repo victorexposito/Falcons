@@ -51,7 +51,7 @@
             <br>
             <form method="post" action="/allocateInstructor">
                 <label>Booking id:</label>
-                <input type="text" name="booking_id" th:value="${booking.booking_id}" readonly>
+                <input type="number" name="booking_id" th:value="${booking.booking_id}" readonly>
                 <label>Activity id:</label>
                 <input type="text" name="activity_id" th:value="${booking.activity_id}" readonly>
                 <label>instructor id:</label>
@@ -64,6 +64,9 @@
                 <input type="text" name="end_date_time" th:value="${booking.end_date_time}" readonly>
                 <input type="submit" value="Allocate Instructor" class="btn-create">
             </form>
+            <a th:href="${'/deleteBooking?id=' + booking.booking_id}" >
+                    <button class="btn btn-del">Cancel booking</button>
+                </a></td>
             <br>
         </span>
 
