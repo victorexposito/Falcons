@@ -40,19 +40,19 @@ nav a {
 
 /* table styles */
 /* https://www.w3schools.com/html/html_tables.asp */
-table {
+table, form {
     border-collapse: collapse;
     width: 100%;
 }
 
-td, th {
+td, th, input {
     border: 1px solid #dddddd;
     text-align: left;
     /*padding: 8px;*/
     padding: 5px 8px 5px 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(even), input:nth-child(even) {
     background-color: #dddddd;
 }
 
