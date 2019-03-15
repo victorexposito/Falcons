@@ -51,17 +51,17 @@
             <br>
             <form method="post" action="/allocateInstructor">
                 <label>Booking id:</label>
-                <input type="text" name="booking_id" th:value="${booking.booking_id}">
+                <input type="text" name="booking_id" th:value="${booking.booking_id}" readonly>
                 <label>Activity id:</label>
-                <input type="text" name="activity_id" th:value="${booking.activity_id}">
+                <input type="text" name="activity_id" th:value="${booking.activity_id}" readonly>
                 <label>instructor id:</label>
-                <input type="text" name="instructor_id" th:value="${booking.instructor_id}">
+                <input type="text" name="instructor_id" th:value="${booking.instructor_id}" readonly>
                 <label>Customer id:</label>
-                <input type="text" name="customer_id" th:value="${booking.customer_id}">
+                <input type="text" name="customer_id" th:value="${booking.customer_id}" readonly>
                 <label>Start tidspunkt</label>
-                <input type="text" name="start_date_time" th:value="${booking.start_date_time}">
+                <input type="text" name="start_date_time" th:value="${booking.start_date_time}" readonly>
                 <label>Slut tidspunkt</label>
-                <input type="text" name="end_date_time" th:value="${booking.end_date_time}">
+                <input type="text" name="end_date_time" th:value="${booking.end_date_time}" readonly>
                 <input type="submit" value="Allocate Instructor" class="btn-create">
             </form>
             <br>
