@@ -16,7 +16,7 @@ public class EquipmentService implements ServiceI<Equipment> {
 
     @Override
     public Equipment create(Equipment equipment) {
-        return null;
+        return ER.create(equipment);
     }
 
     @Override

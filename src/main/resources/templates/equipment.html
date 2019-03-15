@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<h1>Equipment</h1>
 <table id="myTable" style="width: 70%" >
 
     <thead>
@@ -27,6 +28,17 @@
 
     </tbody>
 </table>
+<span th:each="equipment : ${equipment}">
+    <br>
+    <form method="post" action="/addEquipment">
+        <input type="number" name="equipment_id" th:value="${equipment.equipment_id}">
+        <input type="text" name="name" th:value="${equipment.name}">
+        <input type="number" name="quantity" th:value="${equipment.quantity}">
+        <input type="text" name="comment" th:value="${equipment.comment}">
+        <input type="submit" value="add equipment" class="btn btn-create">
+
+    </form>
+</span>
 <a th:href="@{'/'}">
     <button class="btn btn-ed">Back</button>
 </a>

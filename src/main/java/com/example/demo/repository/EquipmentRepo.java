@@ -17,7 +17,9 @@ public class EquipmentRepo implements RepositoryI<Equipment> {
 
     @Override
     public Equipment create(Equipment equipment) {
-        return null;
+        String sql = "INSERT INTO equipment (equipment_id, name, quantity, comment) VALUES (?,?,?,?)";
+        template.update(sql, equipment.getEquipment_id(), equipment.getName(), equipment.getQuantity(), equipment.getComment());
+        return equipment;
     }
 
     @Override
