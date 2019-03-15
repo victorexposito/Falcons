@@ -15,22 +15,22 @@ public class EquipmentService implements ServiceI<Equipment> {
     EquipmentRepo ER = new EquipmentRepo();
 
     @Override
-    public Equipment create(Equipment equiptment) {
+    public Equipment create(Equipment equipment) {
         return null;
     }
 
     @Override
-    public Equipment read(Equipment equiptment) {
+    public Equipment read(Equipment equipment) {
         return null;
     }
 
     @Override
-    public Equipment update(Equipment equiptment) {
+    public Equipment update(Equipment equipment) {
         return null;
     }
 
     @Override
-    public Equipment delete(Equipment equiptment) {
+    public Equipment delete(Equipment equipment) {
         return null;
     }
 

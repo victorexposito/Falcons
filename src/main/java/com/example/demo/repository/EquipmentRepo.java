@@ -16,28 +16,28 @@ public class EquipmentRepo implements RepositoryI<Equipment> {
     JdbcTemplate template;
 
     @Override
-    public Equipment create(Equipment equiptment) {
+    public Equipment create(Equipment equipment) {
         return null;
     }
 
     @Override
-    public Equipment read(Equipment equiptment) {
+    public Equipment read(Equipment equipment) {
         return null;
     }
 
     @Override
-    public Equipment update(Equipment equiptment) {
+    public Equipment update(Equipment equipment) {
         return null;
     }
 
     @Override
-    public Equipment delete(Equipment equiptment) {
+    public Equipment delete(Equipment equipment) {
         return null;
     }
 
     @Override
     public List<Equipment> readAll() {
-        String sql = "select * from instructor order by last_name";
+        String sql = "select * from equipment order by name";
         RowMapper<Equipment> rowMapper = new BeanPropertyRowMapper<>(Equipment.class);
         List<Equipment> equipment = template.query(sql, rowMapper);
 
