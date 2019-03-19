@@ -62,11 +62,11 @@
                 <input type="text" name="start_date_time" th:value="${booking.start_date_time}" readonly>
                 <label>Slut tidspunkt</label>
                 <input type="text" name="end_date_time" th:value="${booking.end_date_time}" readonly>
-                <input type="submit" value="Allocate Instructor" style="width: 200px" class="btn btn-create"><a th:href="${'/deleteBooking?id=' + booking.booking_id}" >
-                    <button style="width: 200px" class="btn btn-del">Cancel booking</button>
+                <input type="submit" value="Allocate Instructor" style="width: 200px" class="btn btn-create">
                 </a></td>
             </form>
-
+            <a th:href="${'/deleteBooking?id=' + booking.booking_id}" >
+                    <button style="width: 200px" class="btn btn-del">Cancel booking</button>
             <br>
         </span>
 
