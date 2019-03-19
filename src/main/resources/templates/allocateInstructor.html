@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>allocateInstructor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div align="center" class="container">
 <h1>Allocate instructor for booking</h1>
 <span th:each="instructor : ${instructor}">
     <br>
         <form method="post" action="/chooseInstructorForBooking">
-            <input type="text" name="instructor_id" th:value="${instructor.instructor_id}">
-            <input type="text" name="first_name" th:value="${instructor.first_name}">
-            <input type="text" name="last_name" th:value="${instructor.last_name}">
-            <input type="text" name="phone_number" th:value="${instructor.phone_number}">
+            <input type="text" name="instructor_id" th:value="${instructor.instructor_id}" readonly>
+            <input type="text" name="first_name" th:value="${instructor.first_name}"readonly>
+            <input type="text" name="last_name" th:value="${instructor.last_name}"readonly>
+            <input type="text" name="phone_number" th:value="${instructor.phone_number}"readonly>
             <input type="submit" value="Choose instructor for booking" class="btn btn-create">
         </form>
     </span>
-
+<a th:href="@{'/'}">
+    <button class="btn btn-ed">Back</button>
+</a>
+</div>
 </body>
 </html>

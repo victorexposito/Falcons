@@ -6,14 +6,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Booking</h1>
 
+<div align="center">
+    <h1>Booking</h1>
     <span th:each="activity : ${activity}">
         <form method="post" action="/bookActivity">
-            <input type="hidden" name="activity_id" th:value="${activity.activity_id}">
-            <input type="text" name="price" th:value="${activity.price}">
-            <input type="text" name="name" th:value="${activity.name}">
-            <input type="text" name="duration" th:value="${activity.duration}">
+            <input type="hidden" name="activity_id" th:value="${activity.activity_id}" readonly>
+            <input type="text" name="price" th:value="${activity.price}" readonly>
+            <input type="text" name="name" th:value="${activity.name}" readonly>
+            <input type="text" name="duration" th:value="${activity.duration}" readonly>
             <input type="submit" value="Choose activity" class="btn btn-create">
         </form>
     </span>
@@ -35,5 +36,6 @@
     <a th:href="@{'/'}">
         <button class="btn btn-ed">Back</button>
     </a>
+</div>
 </body>
 </html>
