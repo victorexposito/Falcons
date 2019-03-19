@@ -41,7 +41,7 @@ public class InstructorRepo implements RepositoryI<Instructor> {
         return null;
     }
 
-
+//Returns a list of all instructors
     @Override
     public List<Instructor> readAll() {
         String sql = "select * from instructor order by last_name";

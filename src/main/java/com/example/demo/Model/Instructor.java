@@ -7,12 +7,14 @@ import javax.persistence.Id;
 @Entity
 public class Instructor {
 
+    //variables
     @Id
     private int instructor_id;
     private String first_name;
     private String last_name;
     private String phone_number;
 
+    //Constructors
     public Instructor(int instructor_id, String first_name, String last_name, String phone_number) {
         this.instructor_id = instructor_id;
         this.first_name = first_name;
@@ -23,6 +25,7 @@ public class Instructor {
     public Instructor() {
     }
 
+    //methods
     public int getInstructor_id() {
         return instructor_id;
     }

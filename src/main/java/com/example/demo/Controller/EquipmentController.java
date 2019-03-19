@@ -16,9 +16,10 @@ import java.util.List;
 @Controller
 public class EquipmentController {
 
+    //repo
     @Autowired
     EquipmentRepo ER;
-
+    //list
     List<Equipment> equipment = new ArrayList<>();
 
 

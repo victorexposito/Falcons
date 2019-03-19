@@ -6,12 +6,14 @@ import javax.persistence.Id;
 @Entity
 public class Activity {
 
+    //Variables
     @Id
     private int activity_id;
     private double price;
     private String name;
     private int duration;
 
+    //Constructors
     public Activity(int activity_id, double price, String name, int duration) {
         this.activity_id = activity_id;
         this.price = price;
@@ -22,6 +24,7 @@ public class Activity {
     public Activity() {
     }
 
+    //Methods
     public int getActivity_id() {
         return activity_id;
     }

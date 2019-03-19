@@ -20,6 +20,7 @@ import java.util.List;
 @Controller
 public class BookingController {
 
+    //Service and repo
     @Autowired
     ActivityService AS;
     @Autowired
@@ -27,17 +28,18 @@ public class BookingController {
     @Autowired
     InstructorService IS;
 
-    List<Activity> activity = new ArrayList<>();
-    List<Booking> booking = new ArrayList<>();
-    List<Instructor> instructor = new ArrayList<>();
+    //Lists
+    List<Activity> activities = new ArrayList<>();
+    List<Booking> bookings = new ArrayList<>();
+    List<Instructor> instructors = new ArrayList<>();
 
+    //current booking object
     Booking booked = new Booking();
-
 
     @GetMapping("/booking")
     public String booking(Model model){
-        activity = AS.readAll();
-        model.addAttribute("activity", activity);
+        activities = AS.readAll();
+        model.addAttribute("activity", activities);
         return "booking";
     }
 
@@ -61,16 +63,16 @@ public class BookingController {
 
     @GetMapping("/bookingDetails")
     public String bookingDetails(Model model, Model model2){
-        booking = BS.readAll();
-        model.addAttribute("booking", booking);
+        bookings = BS.readAll();
+        model.addAttribute("booking", bookings);
         return "bookingDetails";
     }
 
     @PostMapping("/allocateInstructor")
     public String allocateInstructor(@ModelAttribute Booking bookingObject, Model model){
         booked = bookingObject;
-        instructor = IS.readAll();
-        model.addAttribute("instructor", instructor);
+        instructors = IS.readAll();
+        model.addAttribute("instructor", instructors);
         return "allocateInstructor";
 
     }
@@ -79,8 +81,8 @@ public class BookingController {
     public String chooseInstructorForBooking(@ModelAttribute Instructor instructorObject, Model model){
         booked.setInstructor_id(instructorObject.getInstructor_id());
         BS.update(booked);
-        booking = BS.readAll();
-        model.addAttribute("booking", booking);
+        bookings = BS.readAll();
+        model.addAttribute("booking", bookings);
         return "bookingDetails";
     }
 
@@ -88,12 +90,12 @@ public class BookingController {
     @GetMapping("/deleteBooking")
     public String deleteBooking(@RequestParam("id") Integer id, @ModelAttribute Booking bookingToDelete, Model model){
 
-        for (int i = 0; i < booking.size(); i++) {
-            if(booking.get(i).getBooking_id()==id) bookingToDelete=booking.get(i);
+        for (int i = 0; i < bookings.size(); i++) {
+            if(bookings.get(i).getBooking_id()==id) bookingToDelete= bookings.get(i);
         }
 
         BS.delete(bookingToDelete);
-        model.addAttribute("booking", booking);
+        model.addAttribute("booking", bookings);
         return "redirect:/";
     }
 

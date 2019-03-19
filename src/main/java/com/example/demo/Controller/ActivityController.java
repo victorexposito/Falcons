@@ -16,35 +16,21 @@ import java.util.List;
 @Controller
 public class ActivityController {
 
+    //Service and Repo
     @Autowired
     ActivityService AS;
     ActivityRepo AR;
 
-    List<Activity> activity = new ArrayList<>();
+    //Activity list
+    List<Activity> activities = new ArrayList<>();
 
     @GetMapping("/activities")
     public String activities(Model model) {
-        activity = AS.readAll();
-        model.addAttribute("activity", activity);
+        activities = AS.readAll();
+        model.addAttribute("activity", activities);
         return "activities";
     }
 
-
-    @PostMapping("/activities2")
-    public String activities2(@ModelAttribute Activity activityObject, Model model) {
-        activity.clear();
-        try {
-            activity.add(AS.read(activityObject));
-            model.addAttribute("activity", activity);
-        } catch (Exception e) {
-            model.addAttribute("activity", activity);
-        }
-
-
-        return "activities";
-
-
-    }
 }
 
 

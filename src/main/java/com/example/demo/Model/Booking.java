@@ -9,6 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Booking {
 
+    //variables
     @Id
     private int booking_id;
     private int activity_id;
@@ -19,7 +20,7 @@ public class Booking {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String end_date_time;
 
-    //Constructor for booking model
+    //Constructors
     public Booking(int booking_id, int activity_id, int instructor_id, int customer_id, String start_date_time, String end_date_time) {
         this.booking_id = booking_id;
         this.activity_id = activity_id;
@@ -32,6 +33,7 @@ public class Booking {
     public Booking() {
     }
 
+    //Methods
     public int getCustomer_id() {
         return customer_id;
     }

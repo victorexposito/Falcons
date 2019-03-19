@@ -37,6 +37,7 @@ public class EquipmentRepo implements RepositoryI<Equipment> {
         return null;
     }
 
+    //Returns a list of all equipment
     @Override
     public List<Equipment> readAll() {
         String sql = "select * from equipment order by name";

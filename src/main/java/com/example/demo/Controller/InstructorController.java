@@ -16,30 +16,32 @@ import java.util.List;
 @Controller
 public class InstructorController {
 
+    //Service and repos
     @Autowired
     InstructorService IS;
 
-    List<Instructor> instructor = new ArrayList<>();
+    //Instructor list
+    List<Instructor> instructors = new ArrayList<>();
 
     @GetMapping("/instructor")
     public String addInstructor(Model model){
-        instructor = IS.readAll();
-        model.addAttribute("instructor", instructor);
+        instructors = IS.readAll();
+        model.addAttribute("instructor", instructors);
         return "instructor";
     }
 
     @PostMapping("/createInstructor")
     public String createInstructor(@ModelAttribute Instructor i, Model model){
         IS.create(i);
-        instructor = IS.readAll();
-        model.addAttribute("instructor", instructor);
+        instructors = IS.readAll();
+        model.addAttribute("instructor", instructors);
         return "instructor";
     }
 
     @GetMapping("/editInstructor")
     public String editInstructor(@RequestParam("id") Integer id, Model model){
         Instructor instructorToUpdate = new Instructor();
-        for(Instructor i : instructor){
+        for(Instructor i : instructors){
             if(i.getInstructor_id()==id){
                 instructorToUpdate = i;
             }
@@ -50,8 +52,8 @@ public class InstructorController {
     @PostMapping("/editInstructorDo")
     public String editInstructorDo(@ModelAttribute Instructor instructorToEdit, Model model){
         IS.update(instructorToEdit);
-        instructor = IS.readAll();
-        model.addAttribute("instructor", instructor);
+        instructors = IS.readAll();
+        model.addAttribute("instructor", instructors);
         return "instructor";
     }
 

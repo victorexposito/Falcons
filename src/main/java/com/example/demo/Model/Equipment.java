@@ -6,12 +6,14 @@ import javax.persistence.Id;
 @Entity
 public class Equipment {
 
+    //Variables
     @Id
     private int equipment_id;
     private String name;
     private int quantity;
     private String comment;
 
+    //Constructors
     public Equipment(int equipment_id, String name, int quantity, String comment) {
         this.equipment_id = equipment_id;
         this.name = name;
@@ -22,6 +24,7 @@ public class Equipment {
     public Equipment() {
     }
 
+    //methods
     public int getEquipment_id() {
         return equipment_id;
     }
