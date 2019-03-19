@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div align="center">
 <h1>Edit an Instructor</h1>
 
 <form action="/editInstructorDo" method="post">
@@ -18,6 +19,9 @@
 <input type="text" name ="phone_number" th:value="${instructor.phone_number}">
 <input type="submit" value="Update Instructor" class="btn-ed">
 </form>
-
+    <a th:href="@{'/'}">
+        <button class="btn btn-ed">Back</button>
+    </a>
+</div>
 </body>
 </html>

@@ -12,20 +12,17 @@
 
 </head>
 <body>
-
-    <div class="container">
+    <div align="center" class="container">
+        <h1>Activities</h1>
         <form method="post" action="/activities2">
             <label>Search activity</label>
-            <!--<input type="hidden" name = "activity_id">-->
-            <!--<input type="hidden" name = "price">-->
-            <input type="text" name = "name" onkeyup="myFunction()" id="myInput">
-            <!--<input type="hidden" name = "duration">-->
-            <input type="submit" value="Search">
+            <input type="text" name = "name" style="width: 800px" onkeyup="myFunction()" id="myInput">
+            <input type="submit" value="Search" class="btn btn-create" style="width: 150px"><a href="/activities"> <button style="width: 150px"  class="btn btn-details">View all</button> </a>
         </form>
-        <a href="/activities"> <button>View all</button> </a>
-
+        <br>
+        <br>
+        <br>
         <table id="myTable" style="width: 70%" >
-
             <thead>
                     <th style="width: 10%">Activity id</th>
                     <th style="width: 20%">Price</th>
@@ -43,9 +40,11 @@
             </tr>
 
             </tbody>
+
         </table>
+        <br>
         <a th:href="@{'/'}">
-            <button class="btn-details">Back</button>
+            <button class="btn btn-ed">Back</button>
         </a>
     </div>
 
